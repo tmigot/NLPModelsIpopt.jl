@@ -31,6 +31,7 @@ function tests()
                    x->[sum(x) - 1.0], [0.0], [0.0])
   stats = ipopt(nlp)
   @test isapprox(stats.solution, [-1.4; 2.4], rtol=1e-6)
+  @test isapprox(stats.solver_specific[:cx], zeros(1), atol=1e-6)
   @test stats.iter == 1
   @test stats.status == :first_order
 

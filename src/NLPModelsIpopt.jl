@@ -154,7 +154,8 @@ function ipopt(nlp :: AbstractNLPModel;
                                multipliers_L=problem.mult_x_L, multipliers_U=problem.mult_x_U,
                                solver_specific=Dict(
                                  :internal_msg => Ipopt.ApplicationReturnStatus[status],
-                                 :real_time => real_time
+                                 :real_time => real_time,
+                                 :cx => problem.g,
                                )
                               )
 end
